@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>QR Generator</title>
+
+  <script type="text/javascript" src="https://unpkg.com/qr-code-styling/lib/qr-code-styling.js"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header id="header"><h1>QR Medico</h1></header>
+
+<section id="content">
+
+  <div>
+
+    <form id="qrForm" onsubmit="return false;">
+
+      <div class="inputContainer">
+
+        <label for="dataInput"><b>First name:&nbsp;&nbsp;&nbsp;</b></label>
+        <input type="text" onchange="updateQrData();" name="dataInput" id="dataInput" placeholder="Ramu" required />
+
+        <label for="dataInput"><b>Last name:</b></label>
+        <input type="text" onchange="updateQrlastname();" name="dataInput" id="lastname" placeholder="Kaka" required />
+
+        <label for="dataInput"><b>Date of Birth:</b></label>
+        <input type="date" onchange="updateQrdob();" name="dataInput" id="dob" placeholder="01/01/2001" required />
+
+        <label for="dataInput"></label><b>Blood Group:</b></label>
+        <input type="text" onchange="updateQrbg();" name="dataInput" id="bg" placeholder="A+" required />
+
+        <label for="dataInput">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>City:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <input type="text" onchange="updateQrnat();" name="dataInput" id="nat" placeholder="Bhopal" required />
+
+        <label for="dataInput"><b>Previous Medical History:</b></label>
+        <input type="text" onchange="updateQrmed();" name="dataInput" id="med" placeholder="Enter Your Medical History" required />
+        
+        <label for="dataInput">&nbsp;&nbsp;<b>Emergency Contact:</b></label>
+        <input type="text" onchange="updateQrcont();" name="dataInput" id="cont" placeholder="Mobile No." required />
+
+
+        <label for="dataInput"><b>Comments:</b></label>
+        <input type="text" onchange="updateQrblank();" name="dataInput" id="blank" placeholder="Comments" />
+
+      </div>
+
+      <div class="inputContainer">
+
+        <label for="imageInput"><b>Upload Reports</b></label>
+
+        <input type="file" onchange="updateQrupldimg();" name="imageInput" id="imageInput" accept="image/*"  />
+
+      </div>
+
+      <div class="inputContainer">
+
+        <label for="imageInput"><b>QR Logo</b></label>
+
+        <input type="file" onchange="updateQrImg();" name="imageInput" id="imageInput" accept="image/*"  />
+
+      </div>
+
+      <div class="inputContainer">
+
+        <label for="colorInput"><b>QR Colour</b></label>
+
+        <input type="color" onchange="updateQrColor();" name="colorInput" id="colorInput" />
+
+      </div>
+
+      <div class="inputContainer">
+
+        <label for="typeInput"><b>QR Type</b></label>
+
+        <select name="typeInput" id="typeInput" onchange="updateQrType();">
+
+          <option value="square">Square</option>
+
+          <option value="rounded">Rounded</option>
+
+          <option value="dots">Dots</option>
+
+        </select>
+
+      </div>
+
+    </form>
+
+    <button id="formButton" onclick="download();">Submit</button> (Download QR Code)
+
+  </div>
+
+  <div id="canvas"></div>
+
+</section>
+
+<script type="text/javascript" src="qr.js"></script>
+
+</body>
+
+</html>
